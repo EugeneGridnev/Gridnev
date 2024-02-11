@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Tinkoff film browser</string>
+    <string name="network_error_message">Произошла ошибка при загрузке данных, проверьте подключение к сети</string>
+    <string name="network_error_button_text">Повторить</string>
+    <string name="favorites_section_text">Избранное</string>
+    <string name="top_section_text">Популярные</string>
+    <string name="search_hint">Введите название фильма...</string>
+    <string name="year">Год выпуска:</string>
+    <string name="countrys">Страны:</string>
+    <string name="film_type">Жанры:</string>
+</resources>

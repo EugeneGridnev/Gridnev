@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fims_nav_graph"
+    app:startDestination="@id/topFilmsListFragment">
+
+    <fragment
+        android:id="@+id/topFilmsListFragment"
+        android:name="com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments.TopFilmsListFragment"
+        android:label="TopFilmsListFragment" >
+        <action
+            android:id="@+id/action_topFilmsListFragment_to_filmDescriptionFragment"
+            app:destination="@id/filmDescriptionFragment" />
+        <action
+            android:id="@+id/action_topFilmsListFragment_to_noConnectionFragment"
+            app:destination="@id/noConnectionFragment" />
+        <action
+            android:id="@+id/action_topFilmsListFragment_to_searchFilmFragment"
+            app:destination="@id/searchFilmFragment" />
+        <action
+            android:id="@+id/action_topFilmsListFragment_to_favoritesFilmsFragment"
+            app:destination="@id/favoritesFilmsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filmDescriptionFragment"
+        android:name="com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments.FilmDescriptionFragment"
+        android:label="FilmDescriptionFragment" >
+        <argument
+            android:name="film"
+            app:argType="com.tinkofftest.filmbrowser.filmbrowserapp.models.Film" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoritesFilmsFragment"
+        android:name="com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments.FavoritesFilmsFragment"
+        android:label="FavoritesFilmsFragment" >
+        <action
+            android:id="@+id/action_favoritesFilmsFragment_to_filmDescriptionFragment"
+            app:destination="@id/filmDescriptionFragment" />
+        <action
+            android:id="@+id/action_favoritesFilmsFragment_to_searchFilmFragment"
+            app:destination="@id/searchFilmFragment" />
+        <action
+            android:id="@+id/action_favoritesFilmsFragment_to_topFilmsListFragment"
+            app:destination="@id/topFilmsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFilmFragment"
+        android:name="com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments.SearchFilmFragment"
+        android:label="SearchFilmFragment" >
+        <action
+            android:id="@+id/action_searchFilmFragment_to_noConnectionFragment"
+            app:destination="@id/noConnectionFragment" />
+        <action
+            android:id="@+id/action_searchFilmFragment_to_filmDescriptionFragment"
+            app:destination="@id/filmDescriptionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noConnectionFragment"
+        android:name="com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments.NoConnectionFragment"
+        android:label="NoConnectionFragment" />
+</navigation>
