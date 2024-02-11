@@ -10,16 +10,32 @@
         android:label="TopFilmsListFragment" >
         <action
             android:id="@+id/action_topFilmsListFragment_to_filmDescriptionFragment"
-            app:destination="@id/filmDescriptionFragment" />
+            app:destination="@id/filmDescriptionFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_topFilmsListFragment_to_noConnectionFragment"
-            app:destination="@id/noConnectionFragment" />
+            app:destination="@id/noConnectionFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_topFilmsListFragment_to_searchFilmFragment"
-            app:destination="@id/searchFilmFragment" />
+            app:destination="@id/searchFilmFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_topFilmsListFragment_to_favoritesFilmsFragment"
-            app:destination="@id/favoritesFilmsFragment" />
+            app:destination="@id/favoritesFilmsFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/filmDescriptionFragment"
@@ -35,13 +51,25 @@
         android:label="FavoritesFilmsFragment" >
         <action
             android:id="@+id/action_favoritesFilmsFragment_to_filmDescriptionFragment"
-            app:destination="@id/filmDescriptionFragment" />
+            app:destination="@id/filmDescriptionFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_favoritesFilmsFragment_to_searchFilmFragment"
-            app:destination="@id/searchFilmFragment" />
+            app:destination="@id/searchFilmFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_favoritesFilmsFragment_to_topFilmsListFragment"
-            app:destination="@id/topFilmsListFragment" />
+            app:destination="@id/topFilmsListFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/searchFilmFragment"
@@ -49,10 +77,18 @@
         android:label="SearchFilmFragment" >
         <action
             android:id="@+id/action_searchFilmFragment_to_noConnectionFragment"
-            app:destination="@id/noConnectionFragment" />
+            app:destination="@id/noConnectionFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
         <action
             android:id="@+id/action_searchFilmFragment_to_filmDescriptionFragment"
-            app:destination="@id/filmDescriptionFragment" />
+            app:destination="@id/filmDescriptionFragment"
+            app:exitAnim="@anim/slide_out_left"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/noConnectionFragment"
