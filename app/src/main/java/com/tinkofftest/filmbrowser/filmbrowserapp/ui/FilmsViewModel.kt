@@ -103,6 +103,9 @@ class FilmsViewModel(
     }
 
     fun deleteFilm(film: Film) = viewModelScope.launch {
+        topFilmsResponse?.films?.find {
+            it.filmId == film.filmId
+        } ?.let { it.favorite = false }
         film.favorite = false
         filmsRepository.deleteFilm(film)
 
