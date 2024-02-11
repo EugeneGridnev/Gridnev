@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.tinkofftest.filmbrowser.R
 import com.tinkofftest.filmbrowser.databinding.FragmentNoConnectionBinding
-import com.tinkofftest.filmbrowser.databinding.FragmentTopFilmsBinding
-import com.tinkofftest.filmbrowser.filmbrowserapp.adapters.FilmsAdapter
 import com.tinkofftest.filmbrowser.filmbrowserapp.ui.FilmsActivity
 import com.tinkofftest.filmbrowser.filmbrowserapp.ui.FilmsViewModel
 

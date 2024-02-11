@@ -2,17 +2,13 @@ package com.tinkofftest.filmbrowser.filmbrowserapp.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.RoundedCorner
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import com.tinkofftest.filmbrowser.R
 import com.tinkofftest.filmbrowser.databinding.FragmentFilmDescriptionBinding
-import com.tinkofftest.filmbrowser.databinding.FragmentTopFilmsBinding
 import com.tinkofftest.filmbrowser.filmbrowserapp.ui.FilmsActivity
 import com.tinkofftest.filmbrowser.filmbrowserapp.ui.FilmsViewModel
 
