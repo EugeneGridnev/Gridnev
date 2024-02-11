@@ -11,7 +11,7 @@ class FilmsRepository (
         RetrofitInstance.api.getTopFilms(pageNumber = pageNumber)
 
     suspend fun searchByKeyword(searchKeyWord: String, pageNumber: Int) =
-        RetrofitInstance.api.searchForTopFilms(searchKeyWord, pageNumber)
+        RetrofitInstance.api.searchFilmsByKeyword(searchKeyWord, pageNumber)
 
     suspend fun upsert(film: Film) = db.getFilmDao().upsert(film)
 

@@ -30,7 +30,7 @@ interface FilmsAPI {
     ): Response<Film>
 
     @GET("/api/v2.1/films/search-by-keyword")
-    suspend fun searchForTopFilms(
+    suspend fun searchFilmsByKeyword(
         @Query("keyword")
         topType: String = "",
         @Query("page")
