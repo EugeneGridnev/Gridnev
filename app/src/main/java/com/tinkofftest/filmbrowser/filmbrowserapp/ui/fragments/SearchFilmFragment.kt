@@ -48,6 +48,7 @@ class SearchFilmFragment : Fragment(R.layout.fragment_search_film) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as FilmsActivity).viewModel
+        viewModel.resetSearch()
         setupRecyclerView()
 
         filmsAdapter.setOnClickListener {lifecycleScope.launch {

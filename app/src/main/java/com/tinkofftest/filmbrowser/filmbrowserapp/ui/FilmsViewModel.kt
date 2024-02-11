@@ -107,6 +107,9 @@ class FilmsViewModel(
     fun getAllFilms() = filmsRepository.getAllFilms()
 
     fun saveFilm(film: Film) = viewModelScope.launch {
+        topFilmsResponse?.films?.find {
+            it.filmId == film.filmId
+        } ?.let { it.favorite = true }
         film.favorite = true
         filmsRepository.upsert(film)
     }
@@ -139,8 +142,7 @@ class FilmsViewModel(
     private suspend fun safeSearchFilmByKeyword(searchQuery: String) {
         searchFilmByKeyword.postValue(Resource.Loading())
             if (searchQuery != currentSearchQuery) {
-                searchFilmByKeywordResponse = null
-                searchFilmByKeywordPage = 1
+                resetSearch()
             }
             currentSearchQuery = searchQuery
             withInternetConnection() {
@@ -192,6 +194,11 @@ class FilmsViewModel(
             Resource.FilmsSuccess(it)
         })
         searchFilmByKeyword.postValue(null)
+    }
+
+    fun resetSearch() {
+        searchFilmByKeywordResponse = null
+        searchFilmByKeywordPage = 1
     }
 
 }
