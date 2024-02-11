@@ -1,6 +1,8 @@
 package com.tinkofftest.filmbrowser.filmbrowserapp.api
 
+import com.google.gson.GsonBuilder
 import com.tinkofftest.filmbrowser.filmbrowserapp.util.Constants.Companion.BASE_URL
+import com.tinkofftest.filmbrowser.filmbrowserapp.util.NullIntDeserializer
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,9 +16,12 @@ class RetrofitInstance {
             val client = OkHttpClient.Builder()
                 .addInterceptor(logging)
                 .build()
+            val gson = GsonBuilder()
+                .registerTypeAdapter(Int::class.java, NullIntDeserializer())
+                .create()
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
                 .build()
         }
