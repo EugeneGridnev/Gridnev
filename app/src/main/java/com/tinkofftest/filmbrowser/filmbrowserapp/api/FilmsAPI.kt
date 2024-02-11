@@ -29,7 +29,6 @@ interface FilmsAPI {
         apiKey: String = API_KEY
     ): Response<Film>
 
-    //TODO: переделать на норм запрос по фильмам
     @GET("/api/v2.1/films/search-by-keyword")
     suspend fun searchForTopFilms(
         @Query("keyword")
