@@ -13,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.tinkofftest.filmbrowser.R
 import com.tinkofftest.filmbrowser.databinding.FragmentSearchFilmBinding
 import com.tinkofftest.filmbrowser.filmbrowserapp.adapters.FilmsAdapter
@@ -61,6 +62,20 @@ class SearchFilmFragment : Fragment(R.layout.fragment_search_film) {
                 R.id.action_searchFilmFragment_to_filmDescriptionFragment,
                 bundle
             )}
+        }
+
+        filmsAdapter.setOnLongClickListener { film, position ->
+            if (film.favorite == true) {
+                viewModel.deleteFilm(film).invokeOnCompletion {
+                    filmsAdapter.notifyItemChanged(position)
+                }
+                Snackbar.make(view, Constants.FILM_DELETED_MESSAGE, Snackbar.LENGTH_SHORT).show()
+            } else {
+                viewModel.saveFilm(film).invokeOnCompletion {
+                    filmsAdapter.notifyItemChanged(position)
+                }
+                Snackbar.make(view, Constants.FILM_ADDED_MESSAGE, Snackbar.LENGTH_SHORT).show()
+            }
         }
 
         var job: Job? = null
@@ -154,7 +169,6 @@ class SearchFilmFragment : Fragment(R.layout.fragment_search_film) {
     }
 
     private fun setupRecyclerView() {
-        viewModel.resetLiveData()
         filmsAdapter = FilmsAdapter()
         binding.rvSearchFilms.apply {
             adapter = filmsAdapter

@@ -32,6 +32,8 @@ class FilmsViewModel(
     var searchFilmByKeywordPage = 1
     var searchFilmByKeywordResponse: FilmsResponse? = null
 
+    var currentSearchQuery: String? = null
+
 
     fun getTopFilms() = viewModelScope.launch {
         safeTopFilmsCall()
@@ -69,9 +71,16 @@ class FilmsViewModel(
         return Resource.Error(response.message())
     }
 
-    private fun handleSearchFilmByKeywordResponse(response: Response<FilmsResponse>) : Resource {
+    private suspend fun handleSearchFilmByKeywordResponse(response: Response<FilmsResponse>) : Resource {
         if(response.isSuccessful) {
             response.body()?.let {resultResponse ->
+                val filmsList = resultResponse.films.map {
+                    it.filmId
+                }
+                val savedFilms = getSavedFilms(filmsList).associateBy { it.filmId }
+                resultResponse.films.forEach {
+                    it.favorite = savedFilms.containsKey(it.filmId)
+                }
                 searchFilmByKeywordPage++
                 if (searchFilmByKeywordResponse == null){
                     searchFilmByKeywordResponse = resultResponse
@@ -129,6 +138,11 @@ class FilmsViewModel(
 
     private suspend fun safeSearchFilmByKeyword(searchQuery: String) {
         searchFilmByKeyword.postValue(Resource.Loading())
+            if (searchQuery != currentSearchQuery) {
+                searchFilmByKeywordResponse = null
+                searchFilmByKeywordPage = 1
+            }
+            currentSearchQuery = searchQuery
             withInternetConnection() {
                 val response = filmsRepository.searchByKeyword(searchQuery, searchFilmByKeywordPage)
                 return@withInternetConnection handleSearchFilmByKeywordResponse(response)
